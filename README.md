@@ -30,19 +30,19 @@ try {
 ###### FolderItem
 Method | Description | Returns
 ------ | ----------- | -----------
-_getAllItems | Retreive all the items in a folder and his subfolder(s) | JSON with all the items in the folder. If the `_function` parameter is undefined, nothing is returned
+`_getAllItems` | Retreive all the items in a folder and his subfolder(s) | JSON with all the items in the folder. If the `_function` parameter is undefined, nothing is returned
 
 ###### PropertyGroup
 Method | Description | Returns
 ------ | ----------- | -----------
-_removeKeys | Delete all keyframes from the called PropertyGroup | -
+`_removeKeys` | Delete all keyframes from the called *PropertyGroup* | -
 
 ###### Property
 Method | Description | Returns
 ------ | ----------- | -----------
-_removeKeys | Delete all keyframes from the called property | -
+`_removeKeys` | Delete all keyframes from the called *Property* | -
 
 ###### FootageItem
 Method | Description | Returns
 ------ | ----------- | -----------
-_createComp | Create a comp based on the footage | Array containing the CompItem and the Layer [comp,layer]
+`_createComp` | Create a comp based on the footage | Array containing the *CompItem* and the *Layer* [comp,layer]
