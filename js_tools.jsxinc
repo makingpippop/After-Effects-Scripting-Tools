@@ -1,0 +1,136 @@
+/*
+    Author : Alexandre Dagenais
+    Date : 2016-03-16
+*/
+
+//JAVASCRIPT METHODS ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/* JSON METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+//json 2 - https://github.com/douglascrockford/JSON-js/blob/master/json2.js ----------------------------------------------------------------------*/
+"object"!=typeof JSON&&(JSON={}),function(){"use strict";function f(t){return 10>t?"0"+t:t}function this_value(){return this.valueOf()}function quote(t){return rx_escapable.lastIndex=0,rx_escapable.test(t)?'"'+t.replace(rx_escapable,function(t){var e=meta[t];return"string"==typeof e?e:"\\u"+("0000"+t.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+t+'"'}function str(t,e){var r,n,o,u,f,a=gap,i=e[t];switch(i&&"object"==typeof i&&"function"==typeof i.toJSON&&(i=i.toJSON(t)),"function"==typeof rep&&(i=rep.call(e,t,i)),typeof i){case"string":return quote(i);case"number":return isFinite(i)?String(i):"null";case"boolean":case"null":return String(i);case"object":if(!i)return"null";if(gap+=indent,f=[],"[object Array]"===Object.prototype.toString.apply(i)){for(u=i.length,r=0;u>r;r+=1)f[r]=str(r,i)||"null";return o=0===f.length?"[]":gap?"[\n"+gap+f.join(",\n"+gap)+"\n"+a+"]":"["+f.join(",")+"]",gap=a,o}if(rep&&"object"==typeof rep)for(u=rep.length,r=0;u>r;r+=1)"string"==typeof rep[r]&&(n=rep[r],o=str(n,i),o&&f.push(quote(n)+(gap?": ":":")+o));else for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(o=str(n,i),o&&f.push(quote(n)+(gap?": ":":")+o));return o=0===f.length?"{}":gap?"{\n"+gap+f.join(",\n"+gap)+"\n"+a+"}":"{"+f.join(",")+"}",gap=a,o}}var rx_one=/^[\],:{}\s]*$/,rx_two=/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,rx_three=/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,rx_four=/(?:^|:|,)(?:\s*\[)+/g,rx_escapable=/[\\\"\u0000-\u001f\u007f-\u009f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,rx_dangerous=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g;"function"!=typeof Date.prototype.toJSON&&(Date.prototype.toJSON=function(){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+f(this.getUTCMonth()+1)+"-"+f(this.getUTCDate())+"T"+f(this.getUTCHours())+":"+f(this.getUTCMinutes())+":"+f(this.getUTCSeconds())+"Z":null},Boolean.prototype.toJSON=this_value,Number.prototype.toJSON=this_value,String.prototype.toJSON=this_value);var gap,indent,meta,rep;"function"!=typeof JSON.stringify&&(meta={"\b":"\\b"," ":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},JSON.stringify=function(t,e,r){var n;if(gap="",indent="","number"==typeof r)for(n=0;r>n;n+=1)indent+=" ";else"string"==typeof r&&(indent=r);if(rep=e,e&&"function"!=typeof e&&("object"!=typeof e||"number"!=typeof e.length))throw new Error("JSON.stringify");return str("",{"":t})}),"function"!=typeof JSON.parse&&(JSON.parse=function(text,reviver){function walk(t,e){var r,n,o=t[e];if(o&&"object"==typeof o)for(r in o)Object.prototype.hasOwnProperty.call(o,r)&&(n=walk(o,r),void 0!==n?o[r]=n:delete o[r]);return reviver.call(t,e,o)}var j;if(text=String(text),rx_dangerous.lastIndex=0,rx_dangerous.test(text)&&(text=text.replace(rx_dangerous,function(t){return"\\u"+("0000"+t.charCodeAt(0).toString(16)).slice(-4)})),rx_one.test(text.replace(rx_two,"@").replace(rx_three,"]").replace(rx_four,"")))return j=eval("("+text+")"),"function"==typeof reviver?walk({"":j},""):j;throw new SyntaxError("JSON.parse")})}();
+//Object.keys implementation rom https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+Object.keys||(Object.keys=function(){"use strict";var t=Object.prototype.hasOwnProperty,r=!{toString:null}.propertyIsEnumerable("toString"),e=["toString","toLocaleString","valueOf","hasOwnProperty","isPrototypeOf","propertyIsEnumerable","constructor"],o=e.length;return function(n){if("object"!=typeof n&&("function"!=typeof n||null===n))throw new TypeError("Object.keys called on non-object");var c,l,p=[];for(c in n)t.call(n,c)&&p.push(c);if(r)for(l=0;o>l;l++)t.call(n,e[l])&&p.push(e[l]);return p}}());
+
+/* ARRAY METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+//index of
+if(typeof Array.prototype.indexOf != "function"){Array.prototype.indexOf = function (el) {for(var i = 0; i < this.length; i++) if(el === this[i]) return i;return -1;};}
+//min
+Array.prototype.min = function(){return Math.min.apply(Math, this);};
+//max
+Array.prototype.max = function(){ return Math.max.apply(Math, this);};
+
+//CUSTOM METHODS ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ /* ARRAY ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+ function sumArrayElements(){
+        var arrays= arguments, results= [],
+        count= arrays[0].length, L= arrays.length,
+        sum, next= 0, i;
+        while(next<count){
+            sum= 0, i= 0;
+            while(i<L){
+                sum+= Number(arrays[i++][next]);
+            }
+            results[next++]= sum;
+        }
+        return results;
+    }
+
+/* FOLDER ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+//Retreive all the items in a folder and his subfolder(s)
+//Returns a JSON with all the items if the _function parameter is undefined
+//--Param
+	// _exceptions 	: (default : null) - Array containing the name of the folders to ignore. Ex : ["Solids","TEST","X_PROJECT"]
+	// _function 		: (default : JSON) - Function that you want to execute to each item found
+	//							if the _function parameters is null, this method will return a JSON containing all the items
+	/*					EX :	{
+									typeName{
+										itemID : item object
+									}
+								}
+	*/
+FolderItem.prototype._getAllItems = function(_exceptions, _function){
+	//default value
+   _exceptions = typeof _exceptions !== 'undefined' ? _exceptions:null;
+   _function = typeof _function !== 'undefined' ? _function:{};
+    //loop the folder item
+	for(var i = 1; i<this.items.length+1; i++){
+		//get the item
+		var _item = this.item(i);
+		//if the current item is a folder
+		if(_item instanceof FolderItem){
+			//if there's an exception list and the current item is in them
+			if(_exceptions !== null){
+				if(_exceptions.indexOf(_item.name) === -1){
+					//re-execute this function
+					_item._getAllItems(_exceptions, _function);
+				}
+			//if there's no exception list
+			}else
+				//re-execute this function
+				_item._getAllItems(_exceptions, _function);
+		}else{
+			if(_function !== null){
+				//if the _function parameter is empty
+				if(typeof(_function) === 'object'){
+					if(!_function.hasOwnProperty(_item.typeName))
+						_function[_item.typeName] = {};
+					_function[_item.typeName][_item.id] = _item;
+				}else
+					_function(_item);
+			}
+		}
+	}
+	if(typeof(_function) === 'object')
+		return _function;
+};
+/* COMP ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+
+/* LAYER METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+
+/* PROPERTY GROUP METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+//Delete all keyframes from a property group
+//EX : layer.effect._removekeys() || layer.transform._removeKeys()
+PropertyGroup.prototype._removeKeys = function(){
+	for(var p = 1; p<=this.numProperties; p++){
+		this.property(p)._removeKeys();
+	}
+};
+
+/* PROPERTY METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+//Delete all keyframes from the called property
+//EX : layer.marker._removeKeys() || layer.transform.position._removeKeys() || layer.property("Scale")._removeKeys()
+Property.prototype._removeKeys = function(){
+	if(this.canVaryOverTime){
+		app.beginUndoGroup("Delete all keyframes from : " + this.name);
+		while(this.numKeys !== 0)
+			this.removeKey(1);
+		app.endUndoGroup();
+	}
+};
+
+/* FOOTAGE ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+//Create a comp based on the footage
+//Returns an array containing the CompItem and the Layer  [comp,layer]
+//--Param
+	// _name 		: (default : "") - string containing the name of the comp, if empty the name will be the same as the footage
+	// _prefix 		: (default : "") - string to add before the comp name
+	// _suffix 		: (default : "") - string to add after the comp name
+
+FootageItem.prototype._createComp = function(_name, _prefix, _suffix){
+	//default value
+   _name = typeof _name !== 'undefined' ? _name:"";
+   _prefix = typeof _prefix !== 'undefined' ? _prefix:"";
+   _suffix = typeof _suffix !== 'undefined' ? _suffix:"";
+
+   //if there no name, use the name of the footage
+   if(_name === null || _name === "")
+   	_name = this.name;
+	var _comp = app.project.items.addComp(_prefix+_name+_suffix,this.width,this.height,this.pixelAspect,this.duration,this.frameRate);
+	var _layer = comp.layers.add(this);
+	return [_comp,_layer];
+};
