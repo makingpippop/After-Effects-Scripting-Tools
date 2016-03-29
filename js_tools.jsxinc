@@ -25,19 +25,7 @@ Array.prototype.max = function(){ return Math.max.apply(Math, this);};
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
  /* ARRAY ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
- function sumArrayElements(){
-        var arrays= arguments, results= [],
-        count= arrays[0].length, L= arrays.length,
-        sum, next= 0, i;
-        while(next<count){
-            sum= 0, i= 0;
-            while(i<L){
-                sum+= Number(arrays[i++][next]);
-            }
-            results[next++]= sum;
-        }
-        return results;
-    }
+
 
 /* FOLDER ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
 //Retreive all the items in a folder and his subfolder(s)
