@@ -31,7 +31,7 @@ Array.prototype.fill = function(t){for(var a=Object(this),r=parseInt(a.length,10
  //--Param
 	// _arr  		: The array or number to combine with
 	//					( if this is a number it will be applied to every element of the array)
-	//					( if the arrays are not the same length, the smaller array will fill with 0 or 1 (since you can't divide by 0))
+	//					( If the arrays are not the same length, the smaller array will be filled with 0 or 1 (since you can't divide by 0))
 	// _operator	: String of the operator ("+", "-" , "/" , "*")
  Array.prototype._combine = function(_arr,_operator){
  		//check if argument is an array
@@ -141,7 +141,6 @@ PropertyGroup.prototype._removeKeys = function(){
 		this.property(p)._removeKeys();
 	}
 };
-
 /* PROPERTY METHODS ------------------------------------------------------------------------------------------------------------------------------ */
 //Delete all keyframes from the called property
 //EX : layer.marker._removeKeys() || layer.transform.position._removeKeys() || layer.property("Scale")._removeKeys()
@@ -151,6 +150,15 @@ Property.prototype._removeKeys = function(){
 		while(this.numKeys !== 0)
 			this.removeKey(1);
 		app.endUndoGroup();
+	}
+};
+
+/* MASK PROPERTY GROUP METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+//Delete all keyframes from a mask property group
+//EX : layer.mask._removekeys() || layer.transform._removeKeys()
+MaskPropertyGroup.prototype._removeKeys = function(){
+	for(var p = 1; p<=this.numProperties; p++){
+		this.property(p)._removeKeys();
 	}
 };
 
