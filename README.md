@@ -1,5 +1,8 @@
 # After-Effects-Scripting-Tools
-This .jsxinc file includes basic and custom Javascript methods and functions that I think is missing in the Extend Script environment .
+This .jsxinc file includes basic and custom Javascript methods and functions that I think is missing in the Extend Script environment.
+
+I will update this file as I create new methods, so be sure to check regularly for updates !
+Feel free to add this script in yours, and contact me if you wanna add some of your useful methods.
 
 ## Install
 Import the file into your current script.
