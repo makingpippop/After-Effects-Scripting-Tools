@@ -43,6 +43,12 @@ Method | Description | Returns
 ------ | ----------- | -----------
 `_getAllItems` | Retreive all the items in a folder and his subfolder(s) | JSON with all the items in the folder. If the `_function` parameter is undefined, nothing is returned
 
+>**MaskPropertyGroup**
+
+Method | Description | Returns
+------ | ----------- | -----------
+`_removeKeys` | Delete all keyframes from the called *MaskPropertyGroup* | -
+
 >**PropertyGroup**
 
 Method | Description | Returns
