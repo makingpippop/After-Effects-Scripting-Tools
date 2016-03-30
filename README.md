@@ -29,12 +29,12 @@ try {
 - reduce
 - fill ( https://gist.github.com/addyosmani/d5648c89420eb333904c.js )
 
-#### custom Javascript Methods
+#### Custom Javascript Methods
 Method | Description | Returns
 ------ | ----------- | -----------
 `_combine` | add, subtract, multiply or divide 2 arrays | Array
 
-#### custom AE Methods
+#### Custom AE Methods
 
 >**FolderItem**
 
