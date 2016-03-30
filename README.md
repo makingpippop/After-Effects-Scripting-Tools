@@ -25,7 +25,8 @@ try {
 
 ##### Array
 - indexOf
-- min and max
+- min
+- max
 - reduce
 - fill ( https://gist.github.com/addyosmani/d5648c89420eb333904c.js )
 
