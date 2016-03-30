@@ -19,13 +19,67 @@ if(typeof Array.prototype.indexOf != "function"){Array.prototype.indexOf = funct
 Array.prototype.min = function(){return Math.min.apply(Math, this);};
 //max
 Array.prototype.max = function(){ return Math.max.apply(Math, this);};
-
+//fill
+Array.prototype.fill = function(t){for(var a=Object(this),r=parseInt(a.length,10),n=arguments[1],e=parseInt(n,10)||0,h=0>e?Math.max(r+e,0):Math.min(e,r),i=arguments[2],m=void 0===i?r:parseInt(i)||0,s=0>m?Math.max(r+m,0):Math.min(m,r);s>h;h++)a[h]=t;return a;};
 //CUSTOM METHODS ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
  /* ARRAY ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+ //add, subtract, multiply or divide 2 arrays
+ //Returns an Array with the result
+ //--Param
+	// _arr  		: The array or number to combine with
+	//					( if this is a number it will be applied to every element of the array)
+	//					( if the arrays are not the same length, the smaller array will fill with 0 or 1 (since you can't divide by 0))
+	// _operator	: String of the operator ("+", "-" , "/" , "*")
+ Array.prototype._combine = function(_arr,_operator){
+ 		//check if argument is an array
+ 		if(_arr.constructor === Array){
+ 			var filler = 0;
+ 			var smaller = _arr;
+ 			if(_operator === "/")
+ 				filler = 1;
+ 			if(this.length < _arr.length)
+ 				smaller = this;
+ 			//fill the smaller array with 0 or 1
+ 			while(_arr.length !== this.length)
+ 				smaller.push(filler);
+ 		//if argument is a number
+ 		}else if(_arr.constructor === Number)
+ 			//fill a new array the size of THIS with this number
+ 			_arr = Array(this.length).fill(_arr);
+ 		try{
+ 			if(_operator !== "+" && _operator !== "-" && _operator !== "*" && _operator !== "/")
+ 				throw new _error("_combine", "The _operator parameter should be +, -, * or /");
 
+ 			var res = [];
+ 			for(var i = 0; i<this.length;i++){
+ 				var thisVal = this[i];
+ 				var val = _arr[i];
+ 				switch(_operator){
+ 					case '+' :
+ 						res.push(thisVal+val);
+ 					break;
+ 					case '-' :
+ 						res.push(thisVal-val);
+ 					break;
+ 					case '*' :
+ 						res.push(thisVal*val);
+ 					break;
+ 					case '/' :
+ 						if(val === 0)
+ 							throw new _error("_combine", "Cannot divide by 0");
+ 						res.push(thisVal/val);
+ 					break;
+ 				}
+ 			}
+ 			return res;
+ 		}catch(e){
+ 			alert(e.err);
+ 			return;
+ 		}
+    };
 
 /* FOLDER ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
 //Retreive all the items in a folder and his subfolder(s)
@@ -121,3 +175,8 @@ FootageItem.prototype._createComp = function(_name, _prefix, _suffix){
 	var _layer = comp.layers.add(this);
 	return [_comp,_layer];
 };
+
+
+function _error(fnName,err){
+	this.err = "js_tools.js -> "+fnName+" : \n"+err;
+}

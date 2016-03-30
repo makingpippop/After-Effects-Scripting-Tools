@@ -14,7 +14,7 @@ try {
    alert("Error while getting one of the asset for the script");
 }
 ```
-## This script includes : 
+## This script includes :
 #### "Native" Javascript Methods
 ##### JSON
 - JSON2 ( https://github.com/douglascrockford/JSON-js )
@@ -26,6 +26,10 @@ try {
 - reduce
 
 #### custom Javascript Methods
+Method | Description | Returns
+------ | ----------- | -----------
+`_combine` | add, subtract, multiply or divide 2 arrays | Array
+
 #### custom AE Methods
 ###### FolderItem
 Method | Description | Returns
