@@ -32,7 +32,7 @@ try {
 #### Custom Javascript Methods
 Method | Description | Returns
 ------ | ----------- | -----------
-`_combine` | add, subtract, multiply or divide 2 arrays | Array
+`_combine` | add, subtract, multiply or divide the content of 2 arrays | Array
 
 #### Custom AE Methods
 
