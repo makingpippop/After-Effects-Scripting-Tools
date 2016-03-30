@@ -35,22 +35,27 @@ Method | Description | Returns
 `_combine` | add, subtract, multiply or divide 2 arrays | Array
 
 #### custom AE Methods
-###### FolderItem
+
+>**FolderItem**
+
 Method | Description | Returns
 ------ | ----------- | -----------
 `_getAllItems` | Retreive all the items in a folder and his subfolder(s) | JSON with all the items in the folder. If the `_function` parameter is undefined, nothing is returned
 
-###### PropertyGroup
+>**PropertyGroup**
+
 Method | Description | Returns
 ------ | ----------- | -----------
 `_removeKeys` | Delete all keyframes from the called *PropertyGroup* | -
 
-###### Property
+>**Property**
+
 Method | Description | Returns
 ------ | ----------- | -----------
 `_removeKeys` | Delete all keyframes from the called *Property* | -
 
-###### FootageItem
+>**FootageItem**
+
 Method | Description | Returns
 ------ | ----------- | -----------
 `_createComp` | Create a comp based on the footage | Array containing the *CompItem* and the *Layer* [comp,layer]
