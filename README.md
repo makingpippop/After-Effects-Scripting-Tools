@@ -24,6 +24,7 @@ try {
 - indexOf
 - min and max
 - reduce
+- fill ( https://gist.github.com/addyosmani/d5648c89420eb333904c.js )
 
 #### custom Javascript Methods
 Method | Description | Returns
