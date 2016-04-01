@@ -17,6 +17,11 @@ try {
    alert("Error while getting one of the asset for the script");
 }
 ```
+
+You can also use the *#include* at the top of your script
+
+    #include "path-to-this-script/js_tools.jsxinc"
+    
 ## This script includes :
 #### "Native" Javascript Methods
 ##### JSON
