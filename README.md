@@ -21,7 +21,7 @@ try {
 You can also use the *#include* at the top of your script
 
     #include "path-to-this-script/js_tools.jsxinc"
-    
+
 ## This script includes :
 #### "Native" Javascript Methods
 ##### JSON
@@ -36,6 +36,17 @@ You can also use the *#include* at the top of your script
 - fill ( https://gist.github.com/addyosmani/d5648c89420eb333904c.js )
 
 #### Custom Javascript Methods
+
+>**Math**
+
+Method | Description | Returns
+------ | ----------- | -----------
+`Math.degrees` | Converts from radians to degrees | Float
+`Math.radians` | Converts from degrees to radians | Float
+
+
+>**Array**
+
 Method | Description | Returns
 ------ | ----------- | -----------
 `_combine` | add, subtract, multiply or divide the content of 2 arrays | Array

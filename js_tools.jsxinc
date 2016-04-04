@@ -25,11 +25,11 @@ Array.prototype.fill = function(t){for(var a=Object(this),r=parseInt(a.length,10
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  /* MATHS METHODS ------------------------------------------------------------------------------------------------------------------------------ */
-// Converts from degrees to radians.
+// Converts from radians to degrees.
 Math.degrees = function(radians) {
   return radians * 180 / Math.PI;
 };
-// Converts from degrees to radians.
+//Converts from degrees to radians.
 Math.radians = function(degrees) {
   return degrees * Math.PI / 180;
 };
