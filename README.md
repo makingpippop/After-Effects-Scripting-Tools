@@ -35,6 +35,7 @@ You can also use the *#include* at the top of your script
 - reduce
 - fill ( https://gist.github.com/addyosmani/d5648c89420eb333904c.js )
 
+---
 #### Custom Javascript Methods
 
 >**Math**
@@ -51,6 +52,7 @@ Method | Description | Returns
 ------ | ----------- | -----------
 `_combine` | add, subtract, multiply or divide the content of 2 arrays | Array
 
+---
 #### Custom AE Methods
 
 >**FolderItem**
