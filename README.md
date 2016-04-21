@@ -42,7 +42,7 @@ You can also use the *#include* at the top of your script
 
 Method | Description | Returns
 ------ | ----------- | -----------
-`Number.mod` | Modulo (%) with negative number | Int
+`.mod` | Let's you use modulo (%) with a negative number | Int
 
 >**Math**
 
