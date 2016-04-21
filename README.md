@@ -38,6 +38,12 @@ You can also use the *#include* at the top of your script
 ---
 #### Custom Javascript Methods
 
+>**Number**
+
+Method | Description | Returns
+------ | ----------- | -----------
+`Number.mod` | Modulo (%) with negative number | Int
+
 >**Math**
 
 Method | Description | Returns
