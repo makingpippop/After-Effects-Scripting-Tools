@@ -58,6 +58,10 @@ Method | Description | Returns
 ------ | ----------- | -----------
 `_combine` | add, subtract, multiply or divide the content of 2 arrays | Array
 
+Method | Description | Returns
+------ | ----------- | -----------
+`_equals` | Compares two arrays and return true if they are identical | Boolean
+
 ---
 #### Custom AE Methods
 

@@ -91,7 +91,10 @@ Math.radians = function(degrees) {
  			return;
  		}
     };
-
+//equals
+//Compares two arrays and return true if they are identical
+//from http://stackoverflow.com/questions/7837456/how-to-compare-arrays-in-javascript
+Array.prototype._equals=function(r){if(!r)return!1;if(this.length!=r.length)return!1;for(var t=0,e=this.length;e>t;t++)if(this[t]instanceof Array&&r[t]instanceof Array){if(!this[t].equals(r[t]))return!1}else if(this[t]!=r[t])return!1;return!0};
 /* FOLDER ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
 //Retreive all the items in a folder and his subfolder(s)
 //Returns a JSON with all the items if the _function parameter is undefined
