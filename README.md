@@ -38,6 +38,12 @@ You can also use the *#include* at the top of your script
 ---
 #### Custom Javascript Methods
 
+>**String**
+
+Method | Description | Returns
+------ | ----------- | -----------
+`._ext` | Returns the extension of a file name | String
+
 >**Number**
 
 Method | Description | Returns

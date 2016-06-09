@@ -36,6 +36,12 @@ Math.degrees = function(radians) {
 Math.radians = function(degrees) {
   return degrees * Math.PI / 180;
 };
+ /* STRING METHODS ------------------------------------------------------------------------------------------------------------------------------ */
+ //see http://stackoverflow.com/questions/190852/how-can-i-get-file-extensions-with-javascript
+ //Return the extension of a file name
+String.prototype._ext = function(){
+	return this.substr(this.lastIndexOf('.')+1);
+};
  /* ARRAY ITEM METHODS ------------------------------------------------------------------------------------------------------------------------------ */
  //add, subtract, multiply or divide 2 arrays
  //Returns an Array with the result
@@ -87,7 +93,7 @@ Math.radians = function(degrees) {
  			}
  			return res;
  		}catch(e){
- 			alert(e.err);
+ 			alert("'_combine' error : " + e.toString());
  			return;
  		}
     };
