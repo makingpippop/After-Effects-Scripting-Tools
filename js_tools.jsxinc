@@ -200,7 +200,7 @@ FootageItem.prototype._createComp = function(_name, _prefix, _suffix){
    if(_name === null || _name === "")
    	_name = this.name;
 	var _comp = app.project.items.addComp(_prefix+_name+_suffix,this.width,this.height,this.pixelAspect,this.duration,this.frameRate);
-	var _layer = comp.layers.add(this);
+	var _layer = _comp.layers.add(this);
 	return [_comp,_layer];
 };
 
